@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        input[type=button]
+        {
+            height: 100%;
+            width: 100%;
+        }
+        input[type=button]:hover{
+            cursor: pointer;
+        }
+        #tb{
+            margin: 200px;
+            height: 300px;
+            width: 300px;
+        }
+        #t{
+            height: 40px;
+            width: 260px;
+            border: 1px solid black;
+            background-color: rgba(100, 95, 88, 0.274);
+            font-size: x-large;
+         }
+        #tt{
+            height: 45px;
+            width: 40px;
+        } 
+    </style>
+</head>
+<body>
+    <table id="tb">
+        <tr>
+            <th colspan="3" ><input type="text" value="" id="t"></th>
+            <th><input type="button" value="C" id="tt" onclick="clr()" ></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="1" onclick="pic(1)"></th>
+            <th><input type="button" value="2" onclick="pic(2)"></th>
+            <th><input type="button" value="3" onclick="pic(3)"></th>
+            <th><input type="button" value="/" onclick="pic('/')"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="4" onclick="pic(4)"></th>
+            <th><input type="button" value="5" onclick="pic(5)"></th>
+            <th><input type="button" value="6" onclick="pic(6)"></th>
+            <th><input type="button" value="*" onclick="pic('*')"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="7" onclick="pic(7)"></th>
+            <th><input type="button" value="8" onclick="pic(8)"></th>
+            <th><input type="button" value="9" onclick="pic(9)"></th>
+            <th><input type="button" value="-" onclick="pic('-')"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="." onclick="pic('.')"></th>
+            <th><input type="button" value="0" onclick="pic(0)"></th>
+            <th><input type="button" value="=" onclick="solve()"></th>
+            <th><input type="button" value="+" onclick="pic('+')"></th>
+        </tr>
+    </table>
+
+    <script>
+        function pic(val)
+        {
+            document.getElementById("t").value +=val;
+        }
+
+        function clr()
+        {
+            document.getElementById("t").value =" ";
+        }
+        function solve()
+        {
+            let x=document.getElementById("t").value;
+            let y=eval(x);
+            document.getElementById("t").value=y;
+        }
+    </script>
+</body>
+</html>
