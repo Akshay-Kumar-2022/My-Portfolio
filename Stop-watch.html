@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop watch</title>
+    <link rel="stylesheet" href="Stop-watch.css">
+</head>
+<body>
+    <div class="sw">
+        <h1 id="dt">00:00:00</h1>
+        <div class="btn">
+            <img src="pause.png" alt="" height="100px" onclick="Wstop()">
+            <img src="play.jpg" alt="" height="100px" onclick="Wstart()">
+            <img src="reset.jpg" alt="" height="100px" onclick="Wreset()">
+        </div>
+    </div>
+
+    <script>
+        let [sec , min , hrs]=[0,0,0];
+        let disT=document.getElementById("dt");
+        let timer=null;
+
+        function stw(){
+            sec++;
+            
+        if(sec==60){
+            sec=0;
+            min++;
+
+            if(min==60){
+                min=0;
+                hrs++;
+            }
+        }
+
+        let h= hrs < 10 ? "0" + hrs : hrs 
+        let m= min < 10 ? "0" + min : min 
+        let s= sec < 10 ? "0" + sec : sec 
+
+        disT.innerHTML = h + ":" + m + ":" + s ;
+        }
+
+        function Wstart(){
+
+        if(timer!=null){
+            clearInterval(timer)
+        }
+
+            timer = setInterval(stw,1000);
+        }
+
+        function Wstop(){
+            clearInterval(timer);  
+        }
+
+        function Wreset(){
+            clearInterval(timer);
+            let [sec , min , hrs]=[0,0,0];
+            dt.innerHTML = "00:00:00";
+        }
+      </script>
+</body>
+</html>
